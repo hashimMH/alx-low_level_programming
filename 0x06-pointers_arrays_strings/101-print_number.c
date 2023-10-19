@@ -14,11 +14,13 @@ void print_number(int n)
 		print_number(n / 10);
 		_putchar('8');
 	}
+	/*Check negatives*/
 	else if (n < 0)
 	{
 		_putchar('-');
 		print_number(n / (-1));
 	}
+	/*Main */
 	else
 	{
 		if (n >= 10)
