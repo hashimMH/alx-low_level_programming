@@ -7,25 +7,29 @@
 
 void print_number(int n)
 {
-	char a;
+	int res, temp, expo;
 
-	if (n == -2147483648)
-	{
-		print_number(n / 10);
-		_putchar('8');
-	}
+	expo = 1;
 	/*Check negatives*/
-	else if (n < 0)
-	{
-		_putchar('-');
-		print_number(n / (-1));
-	}
-	/*Main */
+	if (n >= 0)
+		res = n * -1;
 	else
 	{
-		if (n >= 10)
-			print_number(n / 10);
-		a = n % 10 + '0';
-		_putchar(a);
+		res = n;
+		_putchar('-');
+	}
+
+	/*Initialize exponent variable*/
+	temp = res;
+	while (temp <= -10)
+	{
+		expo *= 10;
+		temp /= 10;
+	}
+	/*Main */
+	while (expo >= 1)
+	{
+		_putchar(((res / expo) % 10) * -1 + '0');
+		expo /= 10;
 	}
 }
